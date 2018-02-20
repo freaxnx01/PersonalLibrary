@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <ProjectGuid>{A166B9D6-4CAF-4490-B1C5-94C19A56A401}</ProjectGuid>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <OutputType>Library</OutputType>
+    <AssemblyName>TreemapGenerator</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <WarningLevel>4</WarningLevel>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Platform)' == 'AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <OutputPath>bin\Debug\</OutputPath>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <OutputPath>bin\Release\</OutputPath>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="SerializationUtil.cs" />
+    <Compile Include="StringUtil.cs" />
+    <Compile Include="ColorGradientMapper.cs" />
+    <Compile Include="ColorModifier.cs" />
+    <Compile Include="GraphicsUtil.cs" />
+    <Compile Include="PenCache.cs" />
+    <Compile Include="TransparentBrushMapper.cs" />
+    <Compile Include="BottomWeightedSquarifiedLayoutEngine.cs" />
+    <Compile Include="CenterCenterTextDrawer.cs" />
+    <Compile Include="FontForRectangle.cs" />
+    <Compile Include="IFontMapper.cs" />
+    <Compile Include="ILayoutEngine.cs" />
+    <Compile Include="ITextDrawer.cs" />
+    <Compile Include="LayoutEngineBase.cs" />
+    <Compile Include="MaximizingFontMapper.cs" />
+    <Compile Include="NodesEnumerator.cs" />
+    <Compile Include="NodesXmlSerializer.cs" />
+    <Compile Include="PerLevelFontMapper.cs" />
+    <Compile Include="SquarifiedLayoutEngine.cs" />
+    <Compile Include="TextDrawerBase.cs" />
+    <Compile Include="TopTextDrawer.cs" />
+    <Compile Include="TopWeightedSquarifiedLayoutEngine.cs" />
+    <Compile Include="EmptySpace.cs" />
+    <Compile Include="EmptySpaceLocation.cs" />
+    <Compile Include="ITreemapComponent.cs" />
+    <Compile Include="LayoutAlgorithm.cs" />
+    <Compile Include="Node.cs" />
+    <Compile Include="NodeColor.cs" />
+    <Compile Include="NodeColorAlgorithm.cs" />
+    <Compile Include="NodeLevelsWithText.cs" />
+    <Compile Include="Nodes.cs" />
+    <Compile Include="TextLocation.cs" />
+    <Compile Include="TreemapDrawItemEventArgs.cs" />
+    <Compile Include="TreemapGenerator.cs" />
+    <Compile Include="XmlUtil.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>cd "$(TargetDir)"
+attrib "..\..\..\..\Deploy\$(ConfigurationName)\$(TargetFileName)" -r
+xcopy "$(TargetPath)" "..\..\..\..\Deploy\$(ConfigurationName)\" /Y
+xcopy "$(TargetName).pdb" "..\..\..\..\Deploy\$(ConfigurationName)\" /Y</PostBuildEvent>
+  </PropertyGroup>
+</Project>

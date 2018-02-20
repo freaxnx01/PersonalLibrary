@@ -1,0 +1,138 @@
+﻿Fehler auf Zeile/Pos
+----------------------------------------------------------------
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.IO;
+using System.Xml.Linq;
+using System.Xml;
+
+namespace ConsoleApplication2
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            string markup = @"<Root>
+    <Child1 Text=""theText"" />
+    <Child2 />
+    <Child4 />
+</Root>";
+
+            //File.WriteAllText("Test.xml", markup);
+
+            Console.WriteLine(markup);
+
+            XElement po = XElement.Parse(markup, LoadOptions.SetBaseUri | LoadOptions.SetLineInfo);
+
+            //XElement po = XElement.Load("Test.xml",
+                //LoadOptions.SetBaseUri | LoadOptions.SetLineInfo);
+
+            // add a node to the tree.
+            // the newly added node will not have line information.
+            po.Element("Child2").AddAfterSelf(new XElement("Child3"));
+
+            string[] splitUri = po.BaseUri.Split('/');
+            Console.WriteLine("BaseUri: {0}", splitUri[splitUri.Length - 1]);
+            Console.WriteLine();
+            Console.WriteLine("{0}{1}{2}",
+                "Element Name".PadRight(20),
+                "Line".PadRight(5),
+                "Position");
+            Console.WriteLine("{0}{1}{2}",
+                "------------".PadRight(20),
+                "----".PadRight(5),
+                "--------");
+            foreach (XElement e in po.DescendantsAndSelf())
+            {
+                Console.WriteLine("{0}{1}{2}",
+                    ("".PadRight(e.Ancestors().Count() * 2) + e.Name).PadRight(20),
+                    ((IXmlLineInfo)e).HasLineInfo() ?
+                        ((IXmlLineInfo)e).LineNumber.ToString().PadRight(5) :
+                        "",
+                    ((IXmlLineInfo)e).HasLineInfo() ?
+                        ((IXmlLineInfo)e).LinePosition.ToString() :
+                        "No Line Information");
+
+                foreach (XAttribute xattrib in e.Attributes())
+                {
+                    Console.WriteLine("Attribute: {0}\tLine: {1}\tPosition: {2}", xattrib.Name, ((IXmlLineInfo)xattrib).LineNumber, ((IXmlLineInfo)xattrib).LinePosition);
+                }
+            }
+
+            Console.Read();
+        }
+    }
+}
+
+
+
+
+-----------------------------------------------------------------------------
+
+RichTextBox GoToLine
+
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Windows.Forms;
+
+namespace WindowsFormsApplication1
+{
+    public partial class Form1 : Form
+    {
+        public Form1()
+        {
+            InitializeComponent();
+            Load += new EventHandler(Form1_Load);
+        }
+
+        void Form1_Load(object sender, EventArgs e)
+        {
+            richTextBox1.Multiline = true;
+            richTextBox1.WordWrap = false;
+            richTextBox1.ScrollBars = RichTextBoxScrollBars.Both;
+            //richTextBox1.Dock = DockStyle.Fill;
+        }
+
+        private void Form1_DoubleClick(object sender, EventArgs e)
+        {
+            GoToLinePos(richTextBox1, 3, 5);
+        }
+
+        private void GoToLinePos(RichTextBox richTextBox, int lineNumber, int pos)
+        {
+            GoToLine(richTextBox, lineNumber);
+            richTextBox.SelectionStart += pos;
+        }
+
+        private void GoToLine(RichTextBox richTextBox, int lineNumber)
+        {
+            int charIndex = 0;
+            int lineCounter = 0;
+
+            foreach (string line in richTextBox.Lines)
+            {
+                lineCounter++;
+
+                if (lineCounter == lineNumber)
+                {
+                    break;
+                }
+
+                charIndex += line.Length + 1;
+            }
+
+            if (charIndex != richTextBox.SelectionStart)
+            {
+                richTextBox.SelectionStart = charIndex;
+            }
+        }
+    }
+}

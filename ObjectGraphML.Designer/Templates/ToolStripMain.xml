@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ToolStrip xmlns="clr-namespace:System.Windows.Forms;assembly=System.Windows.Forms"
+           xmlns:cmd="clr-namespace:CommandingWinForms;assembly=CommandingWinForms"
+           xmlns:res="clr-namespace:Resources;assembly=StringKing"
+           xmlns:x="http://informing.ch/2011/ObjectGraphML"
+           ImageScalingSize="32, 32">
+  <Items>
+    <cmd:ToolStripButton Name="toolStripButtonStartRecordingMacro" Text="test" DisplayStyle="Image" Image="..\..\..\icons\videocamera.ico" ToolTipText="{x:Static res:Resource.StartRecordingMacro}" AssignCommand="StartRecordingMacro"/>
+    <cmd:ToolStripButton Name="toolStripButtonStopRecordingMacro" Text="test" DisplayStyle="Image" Image="..\..\..\icons\videocamera_stop.ico" ToolTipText="{x:Static res:Resource.StopRecordingMacro}" AssignCommand="StopRecordingMacro"/>
+  </Items>
+</ToolStrip>
