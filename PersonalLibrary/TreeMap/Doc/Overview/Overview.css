@@ -1,0 +1,45 @@
+<!--
+
+Overview.css
+
+Contains styles shared by the Overview.htm files for each of the visualization
+component overview pages, as well as the overview page that describes all of
+the components.
+
+In VSS, there is a single Overview.css file that is shared among all the
+Overview directories.  On the drop server, however, each Overview directory
+has its own copy.  It would be possible to have all the Overview.htm files
+reference a shared Overview.css file in a central drop directory, but that
+kind of dependency would prevent a customer from simply copying an Overview
+directory to his machine.
+-->
+
+<style>
+<!--
+
+BODY, TD
+{
+	font-size: 90%;
+	font-family: Arial;
+}
+
+LI
+{
+	margin-bottom: 1em;
+}
+
+.TopCaption
+{
+	font-size: 130%;
+	margin-bottom: 0;
+}
+
+.SectionHeader
+{
+	font-size: 110%;
+	margin-top: 0.5em;
+	text-decoration: underline;
+}
+
+-->
+</style>

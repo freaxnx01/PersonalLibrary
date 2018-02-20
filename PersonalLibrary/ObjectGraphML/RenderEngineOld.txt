@@ -1,0 +1,211 @@
+﻿using System;
+using System.Linq;
+using System.Collections;
+using System.Collections.Generic;
+using System.Text;
+using System.Xml;
+using System.IO;
+using System.Reflection;
+using System.Windows.Forms;
+using System.Globalization;
+using System.Drawing;
+
+namespace UILibrary
+{
+    //TODO: Rekursion ermöglichen (Menu, Sub Menu, Sub sub Menu | tabControl, Frame, textBox1, textBox2)
+    public class RenderEngine
+    {
+        private const string WinFormsNamespace = "System.Windows.Forms";
+
+        public static void RenderControlFromXml(Control targetControl, string uiXml, object thisInstance)
+        {
+            XmlDocument xmlDoc = new XmlDocument();
+            xmlDoc.LoadXml(uiXml);
+
+            targetControl.SuspendLayout();
+
+            //TODO: Support für System.Windows.Forms.ToolStripDropDownItem.DropDownItems (ToolStripItemCollection) einbauen (ToolStrip, MenuStrip, StatusStrip)
+
+            // Control.Controls (System.Windows.Forms.Control.ControlCollection : ArrangedElementCollection, IList, ICollection, IEnumerable, ICloneable)
+            // MenuStrip.Items (System.Windows.Forms.ToolStripItemCollection : ArrangedElementCollection, IList, ICollection, IEnumerable)
+            // ToolStripDropDownItem.DropDownItems (System.Windows.Forms.ToolStripItemCollection : ArrangedElementCollection, IList, ICollection, IEnumerable)
+
+            // Root node (z.B. menuStrip) besteht bereits und muss nicht instanziert werden. Lediglich die Attribute werden ausgewertet.
+            ApplyAttributes(targetControl, xmlDoc.DocumentElement, thisInstance);
+
+            RenderControl(targetControl, xmlDoc.DocumentElement, thisInstance);
+
+            //foreach (XmlNode xmlNode in xmlDoc.DocumentElement.ChildNodes)
+            //{
+            //    RenderControl(targetControl, xmlNode, thisInstance);
+            //}
+
+            targetControl.ResumeLayout();
+        }
+
+        public static void RenderControl(Control targetControl, string uiXmlFile, object thisInstance)
+        {
+            RenderControlFromXml(targetControl, File.ReadAllText(uiXmlFile), thisInstance);
+        }
+
+        private static void RenderControl(object targetObject, XmlNode xmlNode, object thisInstance)
+        {
+            RenderControl(targetObject, null, xmlNode, thisInstance);
+        }
+
+        private static void RenderControl(object targetObject, IList list, XmlNode xmlNode, object thisInstance)
+        {
+            foreach (XmlNode childXmlNode in xmlNode.ChildNodes)
+            {
+                PropertyInfo propInfo = targetObject.GetType().GetProperty(childXmlNode.Name);
+                if (propInfo != null)
+                {
+                    list = propInfo.GetValue(targetObject, null) as IList;
+                }
+                else
+                {
+                    Assembly winFormsAssembly = typeof(Form).Assembly;
+                    string typeFullName = string.Concat(WinFormsNamespace, ".", childXmlNode.Name);
+                    Type type = winFormsAssembly.GetType(typeFullName);
+                    targetObject = Activator.CreateInstance(type);
+                    list.Add(targetObject);
+                    ApplyAttributes(targetObject, childXmlNode, thisInstance);
+                }
+
+                RenderControl(targetObject, list, childXmlNode, thisInstance);
+            }
+
+            //Assembly winFormsAssembly = typeof(Form).Assembly;
+            //string typeFullName = string.Concat(WinFormsNamespace, ".", xmlNode.Name);
+            //Type controlType = winFormsAssembly.GetType(typeFullName);
+
+            //object instance = null;
+            //if (controlType == targetObject.GetType())
+            //{
+            //    instance = targetObject;
+            //}
+            //else
+            //{
+            //    instance = Activator.CreateInstance(controlType) as Control;
+            //}
+
+            //// Property
+            //string memberName = xmlNode.Name;
+            //PropertyInfo propInfo = controlType.GetProperty(memberName);
+
+            //// Collection
+            //foreach (XmlNode childSubXmlNode in xmlNode.ChildNodes)
+            //{
+            //    string itemTypeFullName = string.Concat(WinFormsNamespace, ".", childSubXmlNode.Name);
+            //    Type itemType = winFormsAssembly.GetType(itemTypeFullName);
+
+            //    string ctorValue = childSubXmlNode.Attributes["ctor"].Value;
+            //    string[] splittedValues = ctorValue.Split(',');
+
+            //    ConstructorInfo ctorInfo = Reflection.GetMatchingConstructorInfo(itemType, splittedValues);
+            //    if (ctorInfo != null)
+            //    {
+            //        object itemInstance = ctorInfo.Invoke(Reflection.ComposeConstructorParameterArray(ctorInfo, splittedValues, targetObject));
+            //        if (itemInstance != null)
+            //        {
+            //            // Add item to collection
+            //            MethodInfo addMethodInfo = propInfo.PropertyType.GetMethod("Add", new Type[] { itemType });
+            //            object collectionInstance = propInfo.GetValue(instance, null);
+            //            addMethodInfo.Invoke(collectionInstance, new object[] { itemInstance });
+            //        }
+            //    }
+            //}
+                
+            //targetObject.Controls.Add(instance);
+        }
+
+        private static void ApplyAttributes(object targetObject, XmlNode xmlNode, object thisInstance)
+        {
+            if (xmlNode.Attributes.Count == 0)
+            {
+                return;
+            }
+
+            Type controlType = targetObject.GetType();
+
+            foreach (XmlAttribute xmlAttribute in xmlNode.Attributes)
+            {
+                string memberName = xmlAttribute.Name;
+                string value = xmlAttribute.Value;
+                if (!string.IsNullOrEmpty(value))
+                {
+                    PropertyInfo propInfo = controlType.GetProperty(memberName);
+
+                    EventInfo eventInfo = null;
+                    if (propInfo == null)
+                    {
+                        eventInfo = controlType.GetEvent(memberName);
+                    }
+
+                    if (propInfo == null && eventInfo == null)
+                    {
+                        throw new ApplicationException(string.Format("{0}.{1} is not an existing property/event.", controlType.FullName, memberName));
+                    }
+
+                    if (propInfo != null)
+                    {
+                        object valueToSet = null;
+
+                        if (propInfo.PropertyType.IsPrimitive || propInfo.PropertyType == typeof(string))
+                        {
+                            valueToSet = Convert.ChangeType(value, propInfo.PropertyType, CultureInfo.CurrentCulture);
+                        }
+                        else
+                        {
+                            if (propInfo.PropertyType.BaseType == typeof(System.Enum))
+                            {
+                                // z.B. Anchor (System.Windows.Forms.AnchorStyles)
+                                valueToSet = Enum.Parse(propInfo.PropertyType, value, false);
+                            }
+                            //TODO: Spezialfall Font, 3. Arg in ctor (FontStyle) wird als Default vorgegeben (FontStyle.Regular)
+                            else if (propInfo.PropertyType == typeof(System.Drawing.Font))
+                            {
+                                // string name, float emSize, FontStyle style
+                                ConstructorInfo ctorInfo = propInfo.PropertyType.GetConstructor(new Type[] { typeof(string), typeof(float), typeof(System.Drawing.FontStyle) });
+                                if (ctorInfo != null)
+                                {
+                                    string[] splittedValues = value.Split(',');
+
+                                    object[] parameters = Reflection.ComposeConstructorParameterArray(ctorInfo, splittedValues, thisInstance);
+                                    var parameterList = new List<object>();
+                                    parameterList.AddRange(parameters);
+
+                                    // Default value
+                                    parameterList.Add(FontStyle.Regular);
+
+                                    valueToSet = ctorInfo.Invoke(parameterList.ToArray());
+                                }
+                            }
+                            else
+                            {
+                                // Greift z.B. bei Location (Point) oder Size (Size)
+                                string[] splittedValues = value.Split(',');
+
+                                ConstructorInfo ctorInfo = Reflection.GetMatchingConstructorInfo(propInfo.PropertyType, splittedValues);
+                                if (ctorInfo != null)
+                                {
+                                    valueToSet = ctorInfo.Invoke(Reflection.ComposeConstructorParameterArray(ctorInfo, splittedValues, thisInstance));
+                                }
+                            }
+                        }
+
+                        propInfo.SetValue(targetObject, valueToSet, null);
+                    }
+                    else if (eventInfo != null)
+                    {
+                        //TODO: BindingFlags (BindingFlags.Instance | BindingFlags.NonPublic) fix
+                        MethodInfo methodInfo = targetObject.GetType().GetMethod(value, BindingFlags.Instance | BindingFlags.NonPublic);
+
+                        Delegate theDelegate = Delegate.CreateDelegate(eventInfo.EventHandlerType, targetObject, methodInfo);
+                        eventInfo.AddEventHandler(targetObject, theDelegate);
+                    }
+                }
+            }
+        }
+    }
+}

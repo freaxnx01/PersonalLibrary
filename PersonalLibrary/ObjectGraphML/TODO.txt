@@ -1,0 +1,27 @@
+﻿Button Content="{}{OK}"
+
+Button mit Text {OK}
+
+{} = Escapesequenz für XAML
+
+sonst wird {...} ausgewertet
+
+
+----------
+
+Xml Document Line/Pos
+http://msdn.microsoft.com/en-gb/library/e3x60fe9.aspx#Y930
+
+
+----------------------------------------------
+
+XPathDocument doc = new XPathDocument("..\\..\\dataset1.xsd");
+XPathNavigator nav = doc.CreateNavigator();
+XPathNodeIterator iter = nav.Select("*");
+if (iter.MoveNext()){
+XPathNavigator root = iter.Current;
+IXmlLineInfo info = root as IXmlLineInfo;
+Console.WriteLine(info.LineNumber +"," + info.LinePosition);
+}
+
+http://bytes.com/topic/net/answers/179550-line-number-information-xmldocument 

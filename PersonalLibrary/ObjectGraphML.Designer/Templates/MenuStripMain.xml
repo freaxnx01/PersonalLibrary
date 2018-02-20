@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<MenuStrip xmlns="clr-namespace:System.Windows.Forms;assembly=System.Windows.Forms"
+           xmlns:cmd="clr-namespace:CommandingWinForms;assembly=CommandingWinForms"
+           xmlns:res="clr-namespace:Resources;assembly=StringKing"
+           xmlns:x="http://informing.ch/2011/ObjectGraphML"
+           Stretch="true" TextDirection="Horizontal" Padding="3">
+  <Items>
+    <ToolStripMenuItem Name="menuItemProgram" Text="{x:Static res:Resource.MenuProgram}">
+      <DropDownItems>
+        <cmd:ToolStripMenuItem Name="menuItemExit" Text="{x:Static res:Resource.Exit}" AssignCommand="Exit"/>
+      </DropDownItems>
+    </ToolStripMenuItem>
+    <ToolStripMenuItem Name="menuItemInput" Text="{x:Static res:Resource.MenuInput}">
+      <DropDownItems>
+        <cmd:ToolStripMenuItem Name="menuItemInputAddTab" Text="{x:Static res:Resource.AddInputTab}" ShortcutKeys="Control, Add" ShortcutKeyDisplayString="Strg + +" AssignCommand="AddInputTab"/>
+        <cmd:ToolStripMenuItem Name="menuItemInputRemoveTab" Text="Remove tab" ShortcutKeys="Control, Subtract" ShortcutKeyDisplayString="Strg + -" AssignCommand="RemoveInputTab"/>
+      </DropDownItems>
+    </ToolStripMenuItem>
+    <ToolStripMenuItem Name="menuItemMacro" Text="{x:Static res:Resource.MenuMacro}">
+      <DropDownItems>
+        <cmd:ToolStripMenuItem Name="menuItemMacroStartRecording" Text="{x:Static res:Resource.StartRecordingMacro}" ShortcutKeys="Control, M" AssignCommand="StartRecordingMacro"/>
+        <cmd:ToolStripMenuItem Name="menuItemMacroStopRecording" Text="{x:Static res:Resource.StopRecordingMacro}" ShortcutKeys="Control, S" AssignCommand="StopRecordingMacro"/>
+        <cmd:ToolStripMenuItem Name="menuItemMacroRunDialog" Text="{x:Static res:Resource.RunMacroDialog}" ShortcutKeys="Control, R" AssignCommand="ShowRunMacroDialog" Visible="false"/>
+        <ToolStripSeparator Name="menuItemMacroSeparator" Visible="false"/>
+      </DropDownItems>
+    </ToolStripMenuItem>
+    <ToolStripMenuItem Name="menuItemExtras" Text="{x:Static res:Resource.MenuExtras}">
+      <DropDownItems>
+        <cmd:ToolStripMenuItem Name="menuItemExtrasComposeTestData" Text="Compose test data" ShortcutKeys="Control, T" AssignCommand="PasteTestData"/>
+        <ToolStripSeparator Name="menuItemExtrasSeparator"/>
+        <cmd:ToolStripMenuItem Name="menuItemExtrasExternalTools" Text="External tools..." AssignCommand="ManageExternalTools"/>
+      </DropDownItems>
+    </ToolStripMenuItem>
+    <ToolStripMenuItem Name="menuItemHelp" Text="{x:Static res:Resource.MenuHelp}">
+      <DropDownItems>
+        <cmd:ToolStripMenuItem Name="menuItemAbout" Text="About..." AssignCommand="ShowAboutBox"/>
+      </DropDownItems>
+    </ToolStripMenuItem>
+  </Items>
+</MenuStrip>

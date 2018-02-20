@@ -1,0 +1,89 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="en-us">
+<meta name="GENERATOR" content="Microsoft FrontPage 5.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<title>Treemap Overview</title>
+<link rel=stylesheet href="Overview.css" type="text/css">
+<script src="Overview.js" type="text/javascript" language="JScript"></script>
+</head>
+
+<body>
+
+<p class="TopCaption">Treemap Overview</p><hr>
+<p><a href="#WhatIsATreemap">What is a Treemap?</a></p>
+<p><a href="#TreemapComponents">Treemap Components</a></p>
+<p><a href="#SampleApplication">Sample Application: Usenet Views</a></p>
+<p><a href="#HowToAddATreemapToYourApplication">How to Add a Treemap to Your  Application</a></p>
+<p><a href="#RelatedComponents">Related Components</a></p>
+<p><a href="#Contacts">Contacts</a></p>
+<hr>
+<p class="SectionHeader"><a name="WhatIsATreemap">What Is a Treemap?</a></p>
+<p>A treemap is a rendering of hierarchical data as a set of nested boxes, where 
+each box corresponds to one data element.&nbsp; The nesting indicates the 
+hierarchy, the box sizes are proportional to some attribute on each element, and 
+the box colors are based on another attribute.&nbsp; Here is a sample treemap:</p>
+<p><img border="0" src="Images/SampleTreemap.GIF" width="663" height="280"></p>
+<p>For a history of treemaps, see
+<a href="http://www.cs.umd.edu/hcil/treemap-history/index.shtml">Treemaps for Space-Constrained 
+Visualization of
+Hierarchies</a>, by Ben Shneiderman at the University of Maryland.&nbsp; Dr. Shneiderman
+invented treemaps.
+</p>
+<hr>
+<p class="SectionHeader"><a name="TreemapComponents">Treemap Components</a></p>
+<p>The Microsoft Research Community Technologies team has developed two .NET 
+components that render treemaps.&nbsp; The TreemapGenerator is a drawing 
+engine without its own user interface. It takes a set of hierarchical data, 
+generates a treemap from the data, and draws it onto a bitmap or Graphics object provided 
+by the caller. It can be used in a variety of environments, including Web 
+applications that generate images on the server for downloading to client 
+browsers.</p>
+<p>The TreemapControl wraps the TreemapGenerator into a Windows Forms control.&nbsp; It can be added to the Visual Studio toolbox and dropped 
+into any Windows Forms application.</p>
+<hr>
+<p class="SectionHeader"><a name="SampleApplication">Sample Application: Usenet 
+Views</a></p>
+<p> Usenet Views is a .NET Windows Forms application that displays Usenet statistics in 
+a variety of graphical formats.&nbsp; Several 
+of the application's views use the TreemapControl.&nbsp; Here, for example, is the microsoft.public newsgroup hierarchy 
+displayed as a treemap:</p>
+
+<p>
+<img border="0" src="Images/SampleNetscanTreemap.gif" width="658" height="418"></p>
+<p>In this example, the size of each newsgroup's box is proportional to the number of posts that 
+were made to that newsgroup in September 2002.&nbsp; The color indicates the 
+change from the previous month: green is more, red is fewer.&nbsp; The 
+application lets you zoom into the hierarchy by double-clicking on the boxes.&nbsp; 
+You can select which Usenet metrics to display, change the colors, alter the 
+border widths and padding between boxes, save the treemap as an image or as XML, and so on.</p>
+<p>Usenet Views is currently not available outside of Microsoft, but see the
+<a href="http://netscan.research.microsoft.com/">Netscan</a> Web site for a 
+related application.</p>
+
+<hr>
+<p class="SectionHeader"><a name="HowToAddATreemapToYourApplication">How to Add a Treemap to Your  Application</a></p>
+<ul>
+  <li>Copy this entire <a href="javascript:OpenComponentLatestDirectory('Treemap');">directory</a> to a .NET development machine.</li>
+  <li>Read the treemap <a href="../Help/Treemap.chm">help file</a>.&nbsp; The 
+  help file has sample application code under the TreemapGenerator and 
+  TreemapControl topics.</li>
+</ul>
+<hr>
+<p class="SectionHeader"><a name="RelatedComponents">Related Components</a></p>
+<p>TreemapGenerator and TreemapControl are just two of the data visualization 
+components that have been developed by the Microsoft Research Community 
+Technologies team.&nbsp;
+See the <a href="javascript:OpenVisualizationComponentOverview();">Visualization 
+Components</a> overview for further information.</p>
+<hr>
+<p class="SectionHeader"><a name="Contacts">Contacts</a></p>
+<p>Questions and comments can be posted to the 
+microsoft.public.research.netscan.discussion newsgroup.</p>
+<hr>
+
+</body>
+
+</html>

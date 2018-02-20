@@ -1,0 +1,531 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" class="Chrome ">
+
+<head id="ctl00_ctl00_HeadTag"><meta http-equiv="X-UA-Compatible" content="IE=7" /><link id="ctl00_ctl00_MasterCss" type="text/css" rel="stylesheet" href="http://i1.codeplex.com/css/v15987/i4103/StyleSheet.ashx" /><link rel="SHORTCUT ICON" href="favicon.ico" />
+    <style type="text/css">.SideBar, .SideBarPadding{display:none;}.MainContent{width:auto;}.SiteContentTable{width:100%;}</style>
+    <style id="ctl00_ctl00_Header_ProjectStyles" type="text/css">.SiteHeader,.SiteHeaderLeft{height:45px !important;overflow:hidden;}.SiteContent{padding:0 1em 1em 1em;margin-top:0;min-height:225px;}.FF .SiteContentTable{clear:both;}.ProjectContent{min-height:225px;}.Safari .ProjectContent{padding-top:0em;}.IE6 .ProjectTitleControl{position:relative;}.CanvasMargin{width:0;}h1.ProjectHeader{font-size:2em;font-weight:bold;margin-bottom:0;}.ProjectHeader a{color:#3E62A6;}.IE table.MinWidthContent{table-layout:auto !important;}.ProjectMessage{border:solid 0.1em #ccc;background-color:#F1FCEE;padding:1em;}</style>
+    
+    
+    
+    <style type="text/css">.LeftSideBar, .LeftSideBarPadding{display:none;}.RightSideBar, .RightSideBarPadding{display:block;}.RightSideBarPadding{width:0;}.MainContent{width:auto;}.IE7 .MainContent{padding-right:0;}.SiteContentTable{width:100%;}</style>
+    <style type="text/css">.MainContent{width:100%;}.RightSideBar{width:auto}</style>
+    <style type="text/css">
+        .FF .TabPanel {margin-bottom:-7px;}
+        .RightSideBar
+        {
+            width: 300px;
+        }
+        .SideBarControl h2
+        {
+        padding: 0;
+        margin: 0.2em 0;
+        }
+    </style>
+
+    <meta id="ctl00_ctl00_Header_WTProjectName" name="WT.pi" content="linqtoxsd"></meta>
+<link rel="alternate" type="application/rss+xml" title="LINQ to XSD" href="http://linqtoxsd.codeplex.com/Project/ProjectRss.aspx" /><link rel="alternate" type="application/rss+xml" title="LINQ to XSD-Discussions" href="http://linqtoxsd.codeplex.com/Project/ProjectRss.aspx?ProjectRSSFeed=codeplex%3a%2f%2fforum%2flinqtoxsd" /><link rel="alternate" type="application/rss+xml" title="LINQ to XSD-Issue Tracker" href="http://linqtoxsd.codeplex.com/Project/ProjectRss.aspx?ProjectRSSFeed=codeplex%3a%2f%2fworkitem%2flinqtoxsd" /><link rel="alternate" type="application/rss+xml" title="LINQ to XSD-Releases" href="http://linqtoxsd.codeplex.com/Project/ProjectRss.aspx?ProjectRSSFeed=codeplex%3a%2f%2frelease%2flinqtoxsd" /><link rel="alternate" type="application/rss+xml" title="LINQ to XSD-Source Code" href="http://linqtoxsd.codeplex.com/Project/ProjectRss.aspx?ProjectRSSFeed=codeplex%3a%2f%2fsourcecontrol%2flinqtoxsd" /><link rel="alternate" type="application/rss+xml" title="LINQ to XSD-Wiki" href="http://linqtoxsd.codeplex.com/Project/ProjectRss.aspx?ProjectRSSFeed=codeplex%3a%2f%2fwiki%2flinqtoxsd" /><link rel="alternate" type="application/rss+xml" title="LINQ to XSD-Reviews" href="http://linqtoxsd.codeplex.com/Project/ProjectRss.aspx?ProjectRSSFeed=codeplex%3a%2f%2freview%2flinqtoxsd" /><title>
+	LINQ to XSD
+</title></head>
+
+<body onload="masterLoad();">
+    <form name="aspnetForm" method="POST" action="/license" id="aspnetForm" autocomplete="off" enctype="multipart/form-data">
+<div>
+<input type="hidden" name="__EVENTTARGET" id="__EVENTTARGET" value="" />
+<input type="hidden" name="__EVENTARGUMENT" id="__EVENTARGUMENT" value="" />
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwUKMjEwNDA3NTUyMQ9kFgJmD2QWAmYPZBYEZg9kFgQCAQ8WAh4EaHJlZgU3aHR0cDovL2kxLmNvZGVwbGV4LmNvbS9jc3MvdjE1OTg3L2k0MTAzL1N0eWxlU2hlZXQuYXNoeGQCAw9kFgRmDxYCHglpbm5lcmh0bWwFngQuU2l0ZUhlYWRlciwuU2l0ZUhlYWRlckxlZnR7aGVpZ2h0OjQ1cHggIWltcG9ydGFudDtvdmVyZmxvdzpoaWRkZW47fS5TaXRlQ29udGVudHtwYWRkaW5nOjAgMWVtIDFlbSAxZW07bWFyZ2luLXRvcDowO21pbi1oZWlnaHQ6MjI1cHg7fS5GRiAuU2l0ZUNvbnRlbnRUYWJsZXtjbGVhcjpib3RoO30uUHJvamVjdENvbnRlbnR7bWluLWhlaWdodDoyMjVweDt9LlNhZmFyaSAuUHJvamVjdENvbnRlbnR7cGFkZGluZy10b3A6MGVtO30uSUU2IC5Qcm9qZWN0VGl0bGVDb250cm9se3Bvc2l0aW9uOnJlbGF0aXZlO30uQ2FudmFzTWFyZ2lue3dpZHRoOjA7fWgxLlByb2plY3RIZWFkZXJ7Zm9udC1zaXplOjJlbTtmb250LXdlaWdodDpib2xkO21hcmdpbi1ib3R0b206MDt9LlByb2plY3RIZWFkZXIgYXtjb2xvcjojM0U2MkE2O30uSUUgdGFibGUuTWluV2lkdGhDb250ZW50e3RhYmxlLWxheW91dDphdXRvICFpbXBvcnRhbnQ7fS5Qcm9qZWN0TWVzc2FnZXtib3JkZXI6c29saWQgMC4xZW0gI2NjYztiYWNrZ3JvdW5kLWNvbG9yOiNGMUZDRUU7cGFkZGluZzoxZW07fWQCAg8WBB4HY29udGVudAUJbGlucXRveHNkHgdWaXNpYmxlZ2QCAQ9kFggCAQ9kFggCAQ9kFgQCAQ9kFgQCAQ8PFgIeC05hdmlnYXRlVXJsBR5odHRwOi8vbGlucXRveHNkLmNvZGVwbGV4LmNvbS9kZAIDDw8WAh8EBR5odHRwOi8vbGlucXRveHNkLmNvZGVwbGV4LmNvbS9kFgJmD2QWAgIBDw8WAh4EVGV4dAULTElOUSB0byBYU0RkZAIDD2QWAmYPZBYCAgEPDxYCHghJbWFnZVVybAU6aHR0cDovL2kzLmNvZGVwbGV4LmNvbS9JbWFnZXMvdjE1OTg3L3NlYXJjaC1idXR0b24tb2ZmLmdpZhYEHgtvbm1vdXNlb3ZlcgVQamF2YXNjcmlwdDp0aGlzLnNyYz0naHR0cDovL2kzLmNvZGVwbGV4LmNvbS9JbWFnZXMvdjE1OTg3L3NlYXJjaC1idXR0b24tb24uZ2lmJzseCm9ubW91c2VvdXQFUWphdmFzY3JpcHQ6dGhpcy5zcmM9J2h0dHA6Ly9pMy5jb2RlcGxleC5jb20vSW1hZ2VzL3YxNTk4Ny9zZWFyY2gtYnV0dG9uLW9mZi5naWYnO2QCAw9kFgQCAQ9kFgRmDw8WAh8DaGQWAgIDD2QWAmYPZBYCAgEPZBYEAgUPDxYCHwNoZGQCBw8PFgIfA2hkZAIBD2QWAgIDD2QWAgIBD2QWAgIBD2QWAgIBD2QWAgIBDxYCHwAFVmh0dHA6Ly9saW5xdG94c2QuY29kZXBsZXguY29tL1Byb2plY3QvRWRpdFByb2plY3REZXRhaWxzLmFzcHg/Rm9jdXNFbGVtZW50PURlc2NyaXB0aW9uZAIDD2QWAmYPFgIfA2gWAmYPDxYCHwQFPWh0dHA6Ly9saW5xdG94c2QuY29kZXBsZXguY29tL1Byb2plY3QvRWRpdFByb2plY3REZXRhaWxzLmFzcHhkZAIFDw8WAh8DaGRkAgcPZBYCAgEPZBYSAgEPFgIeBWNsYXNzBRJUYWIgSW5hY3RpdmVUYWJOZXcWAgIBDw8WAh8EBR5odHRwOi8vbGlucXRveHNkLmNvZGVwbGV4LmNvbS9kZAIDDxYCHwkFElRhYiBJbmFjdGl2ZVRhYk5ldxYCAgEPDxYCHwQFOmh0dHA6Ly9saW5xdG94c2QuY29kZXBsZXguY29tL1JlbGVhc2UvUHJvamVjdFJlbGVhc2VzLmFzcHhkZAIFDxYEHwkFElRhYiBJbmFjdGl2ZVRhYk5ldx8DaBYCAgEPDxYCHwQFK2h0dHA6Ly9saW5xdG94c2QuY29kZXBsZXguY29tL2RvY3VtZW50YXRpb25kZAIHDxYCHwkFElRhYiBJbmFjdGl2ZVRhYk5ldxYCAgEPDxYCHwQFLmh0dHA6Ly9saW5xdG94c2QuY29kZXBsZXguY29tL1RocmVhZC9MaXN0LmFzcHhkZAIJDxYCHwkFElRhYiBJbmFjdGl2ZVRhYk5ldxYCAgEPDxYCHwQFMGh0dHA6Ly9saW5xdG94c2QuY29kZXBsZXguY29tL1dvcmtJdGVtL0xpc3QuYXNweGRkAgsPFgIfCQUSVGFiIEluYWN0aXZlVGFiTmV3FgICAQ8PFgIfBAVIaHR0cDovL2xpbnF0b3hzZC5jb2RlcGxleC5jb20vU291cmNlQ29udHJvbC9MaXN0RG93bmxvYWRhYmxlQ29tbWl0cy5hc3B4ZGQCDQ8WAh8JBRJUYWIgSW5hY3RpdmVUYWJOZXcWAgIBDw8WAh8EBSdodHRwOi8vbGlucXRveHNkLmNvZGVwbGV4LmNvbS90ZWFtL3ZpZXdkZAIPDxYCHwkFEFRhYiBBY3RpdmVUYWJOZXcWAgIBDw8WAh8EBSVodHRwOi8vbGlucXRveHNkLmNvZGVwbGV4LmNvbS9saWNlbnNlZGQCEQ9kFgQCAg9kFgICAw9kFgRmD2QWAgIBD2QWBAIBDw8WAh8GBThodHRwOi8vaTMuY29kZXBsZXguY29tL0ltYWdlcy92MTU5ODcvYXJyb3dfZHNjX2dyZWVuLmdpZmRkAgMPDxYCHwYFMWh0dHA6Ly9pMy5jb2RlcGxleC5jb20vSW1hZ2VzL3YxNTk4Ny9pY29uX3Jzcy5naWZkZAIBD2QWAgIBD2QWAgIBD2QWDgIBD2QWAgIBDw8WAh8EBTVodHRwOi8vbGlucXRveHNkLmNvZGVwbGV4LmNvbS9Qcm9qZWN0L1Byb2plY3RSc3MuYXNweGRkAgMPZBYCAgEPDxYCHwQFZ2h0dHA6Ly9saW5xdG94c2QuY29kZXBsZXguY29tL1Byb2plY3QvUHJvamVjdFJzcy5hc3B4P1Byb2plY3RSU1NGZWVkPWNvZGVwbGV4JTNhJTJmJTJmZm9ydW0lMmZsaW5xdG94c2RkZAIFD2QWAgIBDw8WAh8EBWpodHRwOi8vbGlucXRveHNkLmNvZGVwbGV4LmNvbS9Qcm9qZWN0L1Byb2plY3RSc3MuYXNweD9Qcm9qZWN0UlNTRmVlZD1jb2RlcGxleCUzYSUyZiUyZndvcmtpdGVtJTJmbGlucXRveHNkZGQCBw9kFgICAQ8PFgIfBAVpaHR0cDovL2xpbnF0b3hzZC5jb2RlcGxleC5jb20vUHJvamVjdC9Qcm9qZWN0UnNzLmFzcHg/UHJvamVjdFJTU0ZlZWQ9Y29kZXBsZXglM2ElMmYlMmZyZWxlYXNlJTJmbGlucXRveHNkZGQCCQ9kFgICAQ8PFgIfBAVoaHR0cDovL2xpbnF0b3hzZC5jb2RlcGxleC5jb20vUHJvamVjdC9Qcm9qZWN0UnNzLmFzcHg/UHJvamVjdFJTU0ZlZWQ9Y29kZXBsZXglM2ElMmYlMmZyZXZpZXclMmZsaW5xdG94c2RkZAILD2QWAgIBDw8WAh8EBW9odHRwOi8vbGlucXRveHNkLmNvZGVwbGV4LmNvbS9Qcm9qZWN0L1Byb2plY3RSc3MuYXNweD9Qcm9qZWN0UlNTRmVlZD1jb2RlcGxleCUzYSUyZiUyZnNvdXJjZWNvbnRyb2wlMmZsaW5xdG94c2RkZAIND2QWAgIBDw8WAh8EBWZodHRwOi8vbGlucXRveHNkLmNvZGVwbGV4LmNvbS9Qcm9qZWN0L1Byb2plY3RSc3MuYXNweD9Qcm9qZWN0UlNTRmVlZD1jb2RlcGxleCUzYSUyZiUyZndpa2klMmZsaW5xdG94c2RkZAIED2QWBGYPDxYCHwYFOmh0dHA6Ly9pMy5jb2RlcGxleC5jb20vSW1hZ2VzL3YxNTk4Ny9hcnJvd19yaWdodF9ncmVlbi5naWZkZAICDw8WAh8GBTFodHRwOi8vaTMuY29kZXBsZXguY29tL0ltYWdlcy92MTU5ODcvaWNvbl9yc3MuZ2lmZGQCAg8WAh8FBb8DPHNjcmlwdCB0eXBlPSJ0ZXh0L2phdmFzY3JpcHQiPg0KICAgIHZhciBDb2RlUGxleF9TdXJ2ZXlQcm9maWxlID0gbmV3IE9iamVjdCgpOw0KICAgIENvZGVQbGV4X1N1cnZleVByb2ZpbGUuQ29va2llRG9tYWluID0gJy5jb2RlcGxleC5jb20nOw0KICAgIENvZGVQbGV4X1N1cnZleVByb2ZpbGUuRnJlcXVlbmN5ID0gMC4wMDg7DQoJQ29kZVBsZXhfU3VydmV5UHJvZmlsZS5Vc2VDb29raWUgPSB0cnVlOw0KCUNvZGVQbGV4X1N1cnZleVByb2ZpbGUuV2VpZ2h0ID0gMTAwOw0KICAgIENvZGVQbGV4X1N1cnZleVByb2ZpbGUuUGFnZVVybCA9ICcvc2l0ZS9saWJyYXJ5L3N2eS9TaXRlUmVjcnVpdF9UcmFja2VyX3AyNjM4NjM2NS5odG0nDQo8L3NjcmlwdD4NCjxzY3JpcHQgc3JjPSIvc2l0ZS9saWJyYXJ5L3N2eS9icm9rZXIuanMiIHR5cGU9InRleHQvamF2YXNjcmlwdCI+PC9zY3JpcHQ+ZAIDDw8WAh8GBS5odHRwOi8vaTMuY29kZXBsZXguY29tL0ltYWdlcy92MTU5ODcvYmxhbmsucG5nFgIeBm9ubG9hZAUZc2VsZi5sb2dvSW1hZ2VMb2FkZWQ9dHJ1ZWQCBA8WAh8DZ2QYAgUeX19Db250cm9sc1JlcXVpcmVQb3N0QmFja0tleV9fFgEFO2N0bDAwJGN0bDAwJE1hc3RlckNvbnRlbnQkUHJvamVjdFNlYXJjaENvbnRyb2wkU2VhcmNoQnV0dG9uBThjdGwwMCRjdGwwMCRNYXN0ZXJDb250ZW50JFByb2plY3RTaWduSW5Db250cm9sJExvZ2luVmlldw8PZAIBZA==" />
+</div>
+
+<script type="text/javascript">
+//<![CDATA[
+var theForm = document.forms['aspnetForm'];
+if (!theForm) {
+    theForm = document.aspnetForm;
+}
+function __doPostBack(eventTarget, eventArgument) {
+    if (!theForm.onsubmit || (theForm.onsubmit() != false)) {
+        theForm.__EVENTTARGET.value = eventTarget;
+        theForm.__EVENTARGUMENT.value = eventArgument;
+        theForm.submit();
+    }
+}
+//]]>
+</script>
+
+
+<script src="/WebResource.axd?d=az5BZ-9qYZGtlZ8uC5a1Pw2&amp;t=633894795713100264" type="text/javascript"></script>
+
+
+<script src="/ScriptResource.axd?d=xNw9FpiVpFVQ4jNrrYM4RUPJ3Mo128h3s8zYUsZ5RsNwBuLfq5Qadsley5sfKkhKFmucCM86cu-Y5MIgtZ4FIu87LA2g-baRyT1ZPojuRRE1&amp;t=46222c6f" type="text/javascript"></script>
+<script src="/ScriptResource.axd?d=xNw9FpiVpFVQ4jNrrYM4RUPJ3Mo128h3s8zYUsZ5RsNwBuLfq5Qadsley5sfKkhKSPv28GFnC6m5jHusw8k9jP9-grDhtX3H4rOhtxCM0mk1&amp;t=46222c6f" type="text/javascript"></script>
+<script src="http://i1.codeplex.com/scripts/v15987/i4194287/ScriptLoader.ashx" type="text/javascript"></script>
+<div>
+
+	<input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="/wEWAwKnhuSGDALYp/iUDgKD35z6DQ==" />
+</div>
+    <script type="text/javascript">
+//<![CDATA[
+Sys.WebForms.PageRequestManager._initialize('ctl00$ctl00$ScriptManager', document.getElementById('aspnetForm'));
+Sys.WebForms.PageRequestManager.getInstance()._updateControls([], [], [], 90);
+//]]>
+</script>
+
+    <table id="CanvasTable" cellpadding=0 cellspacing=0>
+        <tr valign="top">
+            <td>
+                <div id="Canvas">
+                    <div id="CanvasContent">
+                        
+    <div id="ctl00_ctl00_MasterContent_ProjectHeader">
+        <table class="FullWidth" cellpadding="0" cellspacing="0" width="100%">
+            <tr>
+                <td class="FullWidth" valign="bottom">
+                    <div class="ProjectLogoLeft">
+                        <table cellpadding="0" cellspacing="0">
+                            <tr>
+                                <td style="height:90px;" valign="middle">
+                                    <div style="padding-left: 1.1em; padding-top: 1.1em; padding-bottom:.8em;">
+                                        
+                                        
+<div class="ProjectTitleControl HalfMarginBottom">
+    <a id="ctl00_ctl00_MasterContent_ProjectTitleControl1_ProjectTitleLink" href="http://linqtoxsd.codeplex.com/"></a>
+    <a id="ctl00_ctl00_MasterContent_ProjectTitleControl1_ProjectTitleLink1" href="http://linqtoxsd.codeplex.com/"><h1 id="ctl00_ctl00_MasterContent_ProjectTitleControl1_ProjectHeader" class="ProjectHeader NoMargin">
+            <span id="ctl00_ctl00_MasterContent_ProjectTitleControl1_TitleLabel">LINQ to XSD</span>
+        </h1></a>
+</div>
+
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>    
+                </td>
+                <td valign="top">
+                    <div class="ProjectLogoRight" onmouseover="this.style.cursor = 'hand';" onmouseout="this.style.cursor = 'default';">
+                        <div class="LogoLinkOuter">
+                            <a href='http://www.codeplex.com' class="LogoLink" title="CodePlex Home"><div class="LogoLinkInner">CodePlex Home</div></a>
+                        </div>
+                    </div>
+                </td>
+                <td valign="top" class="StandardPaddingTop SiteHeaderProjectRight" style="padding-right: 1.7em; padding-left: .1em">
+                    
+        <div class="NoWrap ProjectSignInControl">
+            <a href="http://www.codeplex.com/site/users/view/rbeauchamp" title="Update Your Profile" class="ZoomFix"><span id="ctl00_ctl00_MasterContent_ProjectSignInControl_LoginView_LoginName">rbeauchamp</span></a>
+            <span class="VerticalBarTop ZoomFix">|</span>
+            <a href="https://www.codeplex.com/UserAccount/SignOut.ashx" id="signOutLink" class="ZoomFix">Sign Out</a>
+            <span class="VerticalBarTop ZoomFix">|</span>
+            <a class="ZoomFix" href='http://www.codeplex.com'>CodePlex Home</a>
+        </div>
+    
+                    <div style="margin-top: .5em;">
+                        <div id="ctl00_ctl00_MasterContent_ProjectSearchControl_ProjectSearchPanel" class="ProjectSearchPanel NoWrap" onkeypress="javascript:return WebForm_FireDefaultButton(event, 'ctl00_ctl00_MasterContent_ProjectSearchControl_SearchButton')">
+	
+    <script type="text/javascript">
+        function ProjectSearchButton_Click(input) {
+            suppressUnsavedData();
+
+            var $textbox = $('#ctl00_ctl00_MasterContent_ProjectSearchControl_SearchTextBox');
+            if ($textbox.attr('dirty') != 'true') {
+                $textbox.val('');
+            }
+        }
+    </script>
+    <div class="ProjectSearchPanel">
+        <input name="ctl00$ctl00$MasterContent$ProjectSearchControl$SearchTextBox" type="text" maxlength="500" id="ctl00_ctl00_MasterContent_ProjectSearchControl_SearchTextBox" class="SingleLineTextBox ProjectSearchTextBox" />
+        <input type="image" name="ctl00$ctl00$MasterContent$ProjectSearchControl$SearchButton" id="ctl00_ctl00_MasterContent_ProjectSearchControl_SearchButton" class="ProjectSearchButton" onmouseover="javascript:this.src='http://i3.codeplex.com/Images/v15987/search-button-on.gif';" onmouseout="javascript:this.src='http://i3.codeplex.com/Images/v15987/search-button-off.gif';" src="http://i3.codeplex.com/Images/v15987/search-button-off.gif" alt="Search" onclick="return ProjectSearchButton_Click(this);" style="border-width:0px;" />
+        
+        
+    </div>
+
+</div>
+
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div id="ProjectBody" class="SiteContent">
+        <div id="ctl00_ctl00_MasterContent_ProjectDetailsDiv">
+            
+
+<script type="text/javascript">
+    function VerifyProjectDeletion()
+    {
+        var result = confirm("Are you sure you want to delete this project?  You will not be able to recover it later");
+        if (result)
+            ShowUpdatingPanel();
+        else
+            allowUnsavedDataAlert();
+        return result;
+    }
+    function ShowPublishPanel()
+    {
+        ShowUpdatingPanel();
+    }
+    function ShowUpdatingPanel()
+    {
+        var publishButton=$('#ctl00_ctl00_MasterContent_ProjectCountdown_PublishProject_PublishButton')[0];
+        var deleteButton=$('#ctl00_ctl00_MasterContent_ProjectCountdown_PublishProject_DeleteButton')[0];
+
+        setTimeout(function() { CodePlex.UpdateProgress.displayPanelAndDisableControls('Updating...', publishButton, deleteButton) }, 1);
+    }
+</script>
+<div class="ClearBoth"></div>
+<div class="StandardPaddingBottom">
+
+
+</div>
+<script type="text/javascript">
+    // replaces the smartdatecontrol's "Today" with "today" or "on {Date}" for this user control
+    function formatDate() {
+        var dateSpan = $('#ctl00_ctl00_MasterContent_ProjectCountdown_PublishProject_DeletionDateLiteral');
+        if (dateSpan.text().toLowerCase() == "today")
+            dateSpan.text("today");
+        else
+            dateSpan.text("on " + dateSpan.text());
+    }
+    formatDate();
+</script>
+
+            
+
+        </div>
+            
+        <table class="SiteContentTable" cellspacing="0" cellpadding="0">
+            <tr valign="top">
+               <td class="MainContent">
+                    <div class="MainContentMinWidthContent">
+                        
+                        
+                        <div id="ctl00_ctl00_MasterContent_ProjectContentPanel" class="ProjectContent">
+	
+                            <div id="MenuDiv">
+                                
+    
+<div class="TabStripNew">
+    <table cellpadding="0" cellspacing="0" border="0" class="FullWidth">
+        <tr>
+            <td id="ctl00_ctl00_MasterContent_Tabs_homeTabCell" class="Tab InactiveTabNew">
+                <a id="ctl00_ctl00_MasterContent_Tabs_homeTab" class="TabLinkNew" href="http://linqtoxsd.codeplex.com/"><div class="TabPadding">Home</div></a>
+            </td>
+	
+            <td id="ctl00_ctl00_MasterContent_Tabs_releasesTabCell" class="Tab InactiveTabNew">
+                <a id="ctl00_ctl00_MasterContent_Tabs_releasesTab" class="TabLinkNew" href="http://linqtoxsd.codeplex.com/Release/ProjectReleases.aspx"><div class="TabPadding">Downloads</div></a>
+            </td>
+	
+            
+            <td id="ctl00_ctl00_MasterContent_Tabs_discussionTabCell" class="Tab InactiveTabNew">
+                <a id="ctl00_ctl00_MasterContent_Tabs_discussionTab" class="TabLinkNew" href="http://linqtoxsd.codeplex.com/Thread/List.aspx"><div class="TabPadding">Discussions</div></a> 
+            </td>
+	
+            <td id="ctl00_ctl00_MasterContent_Tabs_workItemsTabCell" class="Tab InactiveTabNew">
+                <a id="ctl00_ctl00_MasterContent_Tabs_workItemsTab" class="TabLinkNew" href="http://linqtoxsd.codeplex.com/WorkItem/List.aspx"><div class="TabPadding">Issue Tracker</div></a>
+            </td>
+	
+            <td id="ctl00_ctl00_MasterContent_Tabs_sourceTabCell" class="Tab InactiveTabNew">
+                <a id="ctl00_ctl00_MasterContent_Tabs_sourceTab" class="TabLinkNew" href="http://linqtoxsd.codeplex.com/SourceControl/ListDownloadableCommits.aspx"><div class="TabPadding">Source Code</div></a>
+            </td>
+	
+            <td id="ctl00_ctl00_MasterContent_Tabs_peopleTabCell" class="Tab InactiveTabNew">
+                <a id="ctl00_ctl00_MasterContent_Tabs_peopleTab" class="TabLinkNew" href="http://linqtoxsd.codeplex.com/team/view"><div class="TabPadding">People</div></a>
+            </td>
+	
+            <td id="ctl00_ctl00_MasterContent_Tabs_licenseTabCell" class="Tab ActiveTabNew">
+                <a id="ctl00_ctl00_MasterContent_Tabs_licenseTab" class="TabLinkNew" href="http://linqtoxsd.codeplex.com/license"><div class="TabPadding">License</div></a>
+            </td>
+	
+            <td class="FullWidth LastTabNew" nowrap="nowrap">
+                <style id="ctl00_ctl00_MasterContent_Tabs_rssFeeds_ProjectDirectoryStyles" type="text/css">
+        .FF .RightMarginFix{
+            margin-right: 1px;
+        }
+        .HoverPanel{
+            position: absolute; 
+            display: none;
+            z-index: 3; 
+        }
+        .IE .HoverPanel{
+            margin-left: -1px;
+        }
+        .IE7 HoverPanel{
+            margin-top: 1px;
+        }
+        .IE6 .HoverPanel .Content{
+	        margin-top: -13px;
+        }
+        .LeftHoverWidth{
+            width: 16.4em;
+        }
+        .HoverClosePanel{
+            width: 4em;
+            position: absolute; 
+            right: 2em;
+            top: -1.9em;
+            z-index: 1;
+        }
+        .HoverClosePanel .RoundedContent{
+            min-height: 2em;
+            height: 2em;
+        }
+        .HoverContentPanel{
+            position:relative;
+            z-index: 2;
+        }
+        .MockPanelBorder{
+            padding-left: 1px;
+            padding-right: 1px;
+        }
+</style>
+    
+<script type="text/javascript">
+        function setMaxHeight(divName, bottomPixelPadding){
+            var constraindiv = $('#' + divName)[0];
+            var divpoint = CodePlex.UI.getElementPosition(constraindiv);
+            var maxHeight = $('#Canvas').offset().top - divpoint.y - bottomPixelPadding;
+            var scrollHeight = constraindiv.scrollHeight;
+            constraindiv.style.height = (scrollHeight > maxHeight) ? maxHeight + 'px' : 'auto';
+        }
+        function placeHover(linkname, hovername) {
+            var link = $('#' + linkname)[0];
+            var $hover = $('#' + hovername);
+            var point = CodePlex.UI.getElementPosition(link);
+            $hover.css('left', (point.x - 135) + 'px');
+            $hover.css('top', (point.y - 7) + 'px');
+            $hover.css('display', 'block');
+        }
+        
+        function closeHover(hovername) {
+            $('#' + hovername).css('display', '');
+        }
+        function closeHovers() {
+            $('#rssHoverDiv').css('display', '');
+        }
+</script>
+    
+<div id="rssHoverDiv" class="HoverPanel LeftHoverWidth AlignLeft">
+        <div id="ctl00_ctl00_MasterContent_Tabs_rssFeeds_RssHoverContentPanel" class="ContentPanelBox SideBarControl HoverContentPanel" style="">
+		<div id="ctl00_ctl00_MasterContent_Tabs_rssFeeds_RssHoverContentPanel_headerPanel" class="HeaderPanel Header">
+			
+    
+                <div class="StandardPaddingBottom">
+                    <div style="float:right">
+                        <a href="#" onclick="allowUnsavedDataAlert();closeHover('rssHoverDiv'); return false;">Close</a>
+                    </div>
+                    <div style="float:left" onclick="allowUnsavedDataAlert();closeHover('rssHoverDiv');">
+                        <a href="#" onclick="return false;"><img id="ctl00_ctl00_MasterContent_Tabs_rssFeeds_RssHoverContentPanel_ArrowDownImg3" src="http://i3.codeplex.com/Images/v15987/arrow_dsc_green.gif" style="height:9px;width:9px;border-width:0px;" /></a>
+                        <a href="#" onclick="return false;">RSS</a>
+                        <img id="ctl00_ctl00_MasterContent_Tabs_rssFeeds_RssHoverContentPanel_rssFeedImageHover" hspace="5" src="http://i3.codeplex.com/Images/v15987/icon_rss.gif" alt="RSS Feed" style="border-width:0px;border: 0px; vertical-align: bottom;" />
+                    </div>
+                    <div class="ClearBoth"></div>
+                </div>
+           
+
+		</div><div id="ctl00_ctl00_MasterContent_Tabs_rssFeeds_RssHoverContentPanel_contentPanel" class="StandardPadding">
+			
+    
+           <ul id="ctl00_ctl00_MasterContent_Tabs_rssFeeds_RssHoverContentPanel_FeedsPanel" class="RssFeedsPanel">
+            <div id="ctl00_ctl00_MasterContent_Tabs_rssFeeds_RssHoverContentPanel_ProjectPanel">
+				
+                <li>
+                    <a id="ctl00_ctl00_MasterContent_Tabs_rssFeeds_RssHoverContentPanel_ProjectRssLink" title="All Project Updates" class="ArrowSmall NoUnderline" href="http://linqtoxsd.codeplex.com/Project/ProjectRss.aspx">All Project Updates</a>
+                </li>
+            
+			</div>
+            <div id="ctl00_ctl00_MasterContent_Tabs_rssFeeds_RssHoverContentPanel_DiscussionsPanel">
+				
+                <li>
+                    <a id="ctl00_ctl00_MasterContent_Tabs_rssFeeds_RssHoverContentPanel_DiscussionsRssLink" title="New threads and posts" class="ArrowSmall NoUnderline" href="http://linqtoxsd.codeplex.com/Project/ProjectRss.aspx?ProjectRSSFeed=codeplex%3a%2f%2fforum%2flinqtoxsd">Discussions</a>
+                </li>
+            
+			</div>
+            <div id="ctl00_ctl00_MasterContent_Tabs_rssFeeds_RssHoverContentPanel_IssueTrackerPanel">
+				
+                <li>    
+                    <a id="ctl00_ctl00_MasterContent_Tabs_rssFeeds_RssHoverContentPanel_IssueTrackerRssLink" title="New and updated work items" class="ArrowSmall NoUnderline" href="http://linqtoxsd.codeplex.com/Project/ProjectRss.aspx?ProjectRSSFeed=codeplex%3a%2f%2fworkitem%2flinqtoxsd">Issue Tracker</a>
+                </li>
+            
+			</div>
+            <div id="ctl00_ctl00_MasterContent_Tabs_rssFeeds_RssHoverContentPanel_ReleasesPanel">
+				
+                <li>
+                    <a id="ctl00_ctl00_MasterContent_Tabs_rssFeeds_RssHoverContentPanel_ReleasesRssLink" title="New and updated releases" class="ArrowSmall NoUnderline" href="http://linqtoxsd.codeplex.com/Project/ProjectRss.aspx?ProjectRSSFeed=codeplex%3a%2f%2frelease%2flinqtoxsd">Releases</a>
+                </li>
+            
+			</div>  
+            <div id="ctl00_ctl00_MasterContent_Tabs_rssFeeds_RssHoverContentPanel_ReviewsPanel">
+				
+                <li>
+                    <a id="ctl00_ctl00_MasterContent_Tabs_rssFeeds_RssHoverContentPanel_ReviewsRssLink" title="New and updated reviews" class="ArrowSmall NoUnderline" href="http://linqtoxsd.codeplex.com/Project/ProjectRss.aspx?ProjectRSSFeed=codeplex%3a%2f%2freview%2flinqtoxsd">Reviews</a>
+                </li>
+            
+			</div>          
+            <div id="ctl00_ctl00_MasterContent_Tabs_rssFeeds_RssHoverContentPanel_SourceControlPanel">
+				
+                <li>
+                    <a id="ctl00_ctl00_MasterContent_Tabs_rssFeeds_RssHoverContentPanel_SourceControlRssLink" title="New check-ins" class="ArrowSmall NoUnderline" href="http://linqtoxsd.codeplex.com/Project/ProjectRss.aspx?ProjectRSSFeed=codeplex%3a%2f%2fsourcecontrol%2flinqtoxsd">Source Code</a>
+                </li>
+            
+			</div>
+            <div id="ctl00_ctl00_MasterContent_Tabs_rssFeeds_RssHoverContentPanel_WikiPanel">
+				
+                <li>
+                    <a id="ctl00_ctl00_MasterContent_Tabs_rssFeeds_RssHoverContentPanel_WikiRssLink" title="New and updated wiki pages" class="ArrowSmall NoUnderline" href="http://linqtoxsd.codeplex.com/Project/ProjectRss.aspx?ProjectRSSFeed=codeplex%3a%2f%2fwiki%2flinqtoxsd">Wiki & Documentation</a>
+                </li>
+            
+			</div>
+        </ul>
+           
+
+		</div>
+	</div>  
+</div>
+    
+<div class="StandardPaddingBottom">
+    <span  id="rssHoverLink" onclick="closeHovers();placeHover('rssHoverLink', 'rssHoverDiv');suppressUnsavedData();">
+    <span id="ctl00_ctl00_MasterContent_Tabs_rssFeeds_FeedsLabel"><img id="ctl00_ctl00_MasterContent_Tabs_rssFeeds_rssRightArrow" title="RSS Feed" src="http://i3.codeplex.com/Images/v15987/arrow_right_green.gif" align="absmiddle" style="border-width:0px;" />
+        <a href="#" onclick="return false;">RSS</a>
+        <img id="ctl00_ctl00_MasterContent_Tabs_rssFeeds_rssFeedImage" hspace="5" src="http://i3.codeplex.com/Images/v15987/icon_rss.gif" alt="RSS Feed" style="border-width:0px;border: 0px; vertical-align:bottom; " /></span>
+    </span>
+</div>
+    
+        
+
+            </td>
+        </tr>
+    </table>
+</div>
+                                
+    
+    <div style="background-color: #eee; padding: 0.5em 1em;">
+        
+        <b>License:</b>
+        <span id="currentLicense">Microsoft Public License (Ms-PL)</span>
+    </div>
+    
+                            </div>
+                            <table cellpadding="0" cellspacing="0" width="100%">
+                                <tr>
+                                    <td valign="top" >
+                                        <div id="ctl00_ctl00_MasterContent_ContentPanel" class="Content">
+		
+                                            
+    
+    <div id="licenseTextHolder" style="margin: 1em">
+        Microsoft Public License &#40;Ms-PL&#41;<br /><br />This license governs use of the accompanying software. If you use the software, you accept this license. If you do not accept the license, do not use the software.<br /><br />1. Definitions<br /><br />The terms &#34;reproduce,&#34; &#34;reproduction,&#34; &#34;derivative works,&#34; and &#34;distribution&#34; have the same meaning here as under U.S. copyright law.<br /><br />A &#34;contribution&#34; is the original software, or any additions or changes to the software.<br /><br />A &#34;contributor&#34; is any person that distributes its contribution under this license.<br /><br />&#34;Licensed patents&#34; are a contributor&#39;s patent claims that read directly on its contribution.<br /><br />2. Grant of Rights<br /><br />&#40;A&#41; Copyright Grant- Subject to the terms of this license, including the license conditions and limitations in section 3, each contributor grants you a non-exclusive, worldwide, royalty-free copyright license to reproduce its contribution, prepare derivative works of its contribution, and distribute its contribution or any derivative works that you create.<br /><br />&#40;B&#41; Patent Grant- Subject to the terms of this license, including the license conditions and limitations in section 3, each contributor grants you a non-exclusive, worldwide, royalty-free license under its licensed patents to make, have made, use, sell, offer for sale, import, and&#47;or otherwise dispose of its contribution in the software or derivative works of the contribution in the software.<br /><br />3. Conditions and Limitations<br /><br />&#40;A&#41; No Trademark License- This license does not grant you rights to use any contributors&#39; name, logo, or trademarks.<br /><br />&#40;B&#41; If you bring a patent claim against any contributor over patents that you claim are infringed by the software, your patent license from such contributor to the software ends automatically.<br /><br />&#40;C&#41; If you distribute any portion of the software, you must retain all copyright, patent, trademark, and attribution notices that are present in the software.<br /><br />&#40;D&#41; If you distribute any portion of the software in source code form, you may do so only under this license by including a complete copy of this license with your distribution. If you distribute any portion of the software in compiled or object code form, you may only do so under a license that complies with this license.<br /><br />&#40;E&#41; The software is licensed &#34;as-is.&#34; You bear the risk of using it. The contributors give no express warranties, guarantees or conditions. You may have additional consumer rights under your local laws which this license cannot change. To the extent permitted under your local laws, the contributors exclude the implied warranties of merchantability, fitness for a particular purpose and non-infringement.
+    </div>
+    
+                                        
+	</div>
+                                    </td>
+                                    <td id="ctl00_ctl00_MasterContent_RightSideBarCell" valign="top">
+                                        <div id="ctl00_ctl00_MasterContent_RightSideBarPanel">
+		
+                                            
+    
+    <div id="LicenseHistorySideBar">
+    <div class="OuterBox GradientBox"><div class="InnerBox">
+        <h2>License History</h2>
+        <table cellpadding="4" cellspacing="4" border="0">
+            
+                <tr>
+                    <td>
+                        <span class="Bold">
+                        
+                            Current (started 6/1/2009)
+                        
+                        </span>
+                    </td>
+                    <td>
+                        
+                            <span class="ReadOnlyLink">View</span>
+                        
+                    </td>
+                </tr>
+            
+        </table>
+    </div></div>
+    </div>
+    
+                                        
+	</div>
+                                    </td>
+	
+                                </tr>
+                            </table>
+                        
+</div>
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+                    </div>
+                </div>
+                <div id="UpdateProgressPanel" class="UpdateProgress">
+                    <span id="UpdateProgressText" class="UpdateProgressText">Updating...</span>
+                </div>
+                <div id="Analytics" style="width: 70%">
+                    <script type="text/javascript">
+    var CodePlex_SurveyProfile = new Object();
+    CodePlex_SurveyProfile.CookieDomain = '.codeplex.com';
+    CodePlex_SurveyProfile.Frequency = 0.008;
+	CodePlex_SurveyProfile.UseCookie = true;
+	CodePlex_SurveyProfile.Weight = 100;
+    CodePlex_SurveyProfile.PageUrl = '/site/library/svy/SiteRecruit_Tracker_p26386365.htm'
+</script>
+<script src="/site/library/svy/broker.js" type="text/javascript"></script>
+                    <img id="ctl00_ctl00_BlankImage" onload="self.logoImageLoaded=true" src="http://i3.codeplex.com/Images/v15987/blank.png" style="height:0px;width:0px;border-width:0px;" />
+                    <script language="javascript" type="text/javascript">
+                        var date = new Date();
+                        var timezoneOffset = date.getTimezoneOffset() / 60 * -1;
+                        var timezoneOffsetCookie = getCookie("TimezoneOffset");
+                        var firstTimeSetTimezoneCookie = false;
+
+                        if (timezoneOffsetCookie == null || timezoneOffsetCookie != timezoneOffset) {
+                            firstTimeSetTimezoneCookie = true;
+                            document.cookie = "TimezoneOffset=" + timezoneOffset + '; domain=.codeplex.com';
+                        }
+                    </script>
+                    
+                    
+                        <noscript><a href="http://www.omniture.com" title="Web Analytics">
+                            <img src="http://msstonojstemp.112.2O7.net/b/ss/msstonojstemp/1/H.20.2--NS/0" height="1" width="1" border="0" alt="" />
+                        </a></noscript>
+                    
+       
+                </div>
+            </td>
+        </tr>
+        <tr valign="bottom">
+            <td>
+                <div id="CanvasFooter">
+                    © 2006-2009 Microsoft
+                    <span class="VerticalBar">|</span>
+                    <a href='http://codeplex.codeplex.com/'>About CodePlex</a>
+                    <span class="VerticalBar">|</span>
+                    <a href='/legal/privacy.aspx'>Privacy Statement</a>
+                    <span class="VerticalBar">|</span>
+                    <a href='http://www.codeplex.com/Legal/Terms.aspx'>Terms of Use</a>
+                    <span class="VerticalBar">|</span>
+                    <a href='http://www.codeplex.com/Legal/Conduct.aspx'>Code of Conduct</a>
+                    <span class="VerticalBar">|</span>
+                    <a href="http://theloungenet.com/codeplex-advertising" target="_blank">Advertise With Us</a>
+                    <span class="VerticalBar">|</span>
+                    Version 2009.10.27.15987
+                </div>
+            </td>
+        </tr>
+    </table>
+     
+
+<script type="text/javascript">
+//<![CDATA[
+$('#ctl00_ctl00_MasterContent_ProjectSearchControl_SearchTextBox').promptBox('Search all CodePlex projects');Sys.Application.initialize();
+//]]>
+</script>
+</form>
+</body>
+</html>
