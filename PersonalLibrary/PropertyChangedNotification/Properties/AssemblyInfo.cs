@@ -8,9 +8,9 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyTitle("PropertyChangedNotification")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("Informing AG")]
+[assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("PropertyChangedNotification")]
-[assembly: AssemblyCopyright("Copyright © Informing AG 2011")]
+[assembly: AssemblyCopyright("Copyright © ")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

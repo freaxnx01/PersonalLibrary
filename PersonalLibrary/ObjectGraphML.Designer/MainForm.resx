@@ -129,7 +129,7 @@
   <data name="richTextBoxML.Text" xml:space="preserve">
     <value>&lt;?xml version="1.0" encoding="utf-8" ?&gt;
 &lt;MenuStrip xmlns="clr-namespace:System.Windows.Forms;assembly=System.Windows.Forms"
-           xmlns:x="http://informing.ch/2011/ObjectGraphML"&gt;
+           xmlns:x="http://freaxnx01.ch/2018/ObjectGraphML"&gt;
   &lt;Items&gt;
     &lt;ToolStripMenuItem Name="menuItemProgram" Text="Program"&gt;
       &lt;DropDownItems&gt;

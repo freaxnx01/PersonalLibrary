@@ -2,7 +2,7 @@
 <MenuStrip xmlns="clr-namespace:System.Windows.Forms;assembly=System.Windows.Forms"
            xmlns:cmd="clr-namespace:CommandingWinForms;assembly=CommandingWinForms"
            xmlns:res="clr-namespace:Resources;assembly=StringKing"
-           xmlns:x="http://informing.ch/2011/ObjectGraphML"
+           xmlns:x="http://freaxnx01.ch/2018/ObjectGraphML"
            Stretch="true" TextDirection="Horizontal" Padding="3">
   <Items>
     <ToolStripMenuItem Name="menuItemProgram" Text="{x:Static res:Resource.MenuProgram}">
