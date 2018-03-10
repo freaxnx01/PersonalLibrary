@@ -8,9 +8,13 @@
    <CreateItem Include="@(ReferencePath)" Condition="'%(CopyLocal)'=='true'">
        <Output TaskParameter="Include" ItemName="IlmergeAssemblies"/>
    </CreateItem>
-   <Exec Command="&quot;$(ProgramFiles)\Microsoft\Ilmerge\ILMerge.exe&quot; /out:@(MainAssembly) &quot;@(IntermediateAssembly)&quot; @(IlmergeAssemblies->'&quot;%(FullPath)&quot;', ' ')"/>
+   <Exec Command="&quot;$(SolutionDir)\ReferencedAssemblies\ILMerge.exe&quot; /out:@(MainAssembly) &quot;@(IntermediateAssembly)&quot; @(IlmergeAssemblies->'&quot;%(FullPath)&quot;', ' ')"/>
    <!--Delete Files="@(ReferenceCopyLocalPaths->'$(OutDir)%(DestinationSubDirectory)%(Filename)%(Extension)')"/-->
  </Target>
 
  <Target Name="_CopyFilesMarkedCopyLocal"/>
 </Project>
+
+
+
+
