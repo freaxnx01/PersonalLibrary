@@ -320,7 +320,11 @@ OpenCover/
 ASALocalRun/
 
 # MSBuild Binary and Structured Log
+<<<<<<< HEAD
 *.binlog
 
 # Custom
 ReferencedAssemblies/
+=======
+*.binlog
+>>>>>>> 7945f55f16f6566bbbdbaf1fa475095102ffa8d0
