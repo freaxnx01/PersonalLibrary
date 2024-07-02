@@ -59,10 +59,6 @@
       <Project>{10F56036-B6C2-4D41-8595-35812CF5FC3D}</Project>
       <Name>Data</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Misc\Misc.csproj">
-      <Project>{408D0EC1-C206-47E8-AE01-E864797B29F1}</Project>
-      <Name>Misc</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />

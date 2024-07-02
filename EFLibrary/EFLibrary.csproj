@@ -76,17 +76,9 @@
       <Project>{10F56036-B6C2-4D41-8595-35812CF5FC3D}</Project>
       <Name>Data</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Extensions\Extensions.csproj">
-      <Project>{9B141482-A19A-46EF-AD98-393BB645ABFE}</Project>
-      <Name>Extensions</Name>
-    </ProjectReference>
     <ProjectReference Include="..\LinqToEdmx\LinqToEdmx.Core.dll.csproj">
       <Project>{97D4C717-81F9-4DA0-8AAF-2C3206EECB3E}</Project>
       <Name>LinqToEdmx.Core.dll</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Misc\Misc.csproj">
-      <Project>{408D0EC1-C206-47E8-AE01-E864797B29F1}</Project>
-      <Name>Misc</Name>
     </ProjectReference>
     <ProjectReference Include="..\SqlLibrary\SqlLibrary.csproj">
       <Project>{59055EB8-6158-4F36-835A-6CAF83F2C231}</Project>

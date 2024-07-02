@@ -86,10 +86,6 @@
     <None Include="Resources\browse.ico" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\BaseLib\BaseLib.csproj">
-      <Project>{FA8A1196-20F3-44E7-874C-7C55DB44C2E5}</Project>
-      <Name>BaseLib</Name>
-    </ProjectReference>
     <ProjectReference Include="..\GuiLib\GuiLib.csproj">
       <Project>{d8c5cc9f-83b2-4d7a-9abf-7df75973472b}</Project>
       <Name>GuiLib</Name>

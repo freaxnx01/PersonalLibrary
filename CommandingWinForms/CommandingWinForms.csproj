@@ -83,10 +83,6 @@
       <Project>{54F213B7-0261-47DD-8C56-53D211BFA198}</Project>
       <Name>Commanding</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Extensions\Extensions.csproj">
-      <Project>{9B141482-A19A-46EF-AD98-393BB645ABFE}</Project>
-      <Name>Extensions</Name>
-    </ProjectReference>
     <ProjectReference Include="..\ObjectGraphML\ObjectGraphML.csproj">
       <Project>{AC186731-FB66-423F-B145-67A560C06994}</Project>
       <Name>ObjectGraphML</Name>

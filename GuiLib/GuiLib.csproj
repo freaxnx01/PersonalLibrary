@@ -96,10 +96,6 @@
       <Project>{3DBA97D6-AFE1-45B6-9FC9-D0BC2C6072CA}</Project>
       <Name>AssemblyLib</Name>
     </ProjectReference>
-    <ProjectReference Include="..\BaseLib\BaseLib.csproj">
-      <Project>{FA8A1196-20F3-44E7-874C-7C55DB44C2E5}</Project>
-      <Name>BaseLib</Name>
-    </ProjectReference>
     <ProjectReference Include="..\ConfigEditorBaseLogic\ConfigEditorBaseLogic.csproj">
       <Project>{BEED50E9-85C4-4E7F-8323-32DB18599B35}</Project>
       <Name>ConfigEditorBaseLogic</Name>
