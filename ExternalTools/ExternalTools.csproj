@@ -91,7 +91,7 @@
       <Name>BaseLib</Name>
     </ProjectReference>
     <ProjectReference Include="..\GuiLib\GuiLib.csproj">
-      <Project>{D8C5CC9F-83B2-4D7A-9ABF-7DF75973472B}</Project>
+      <Project>{d8c5cc9f-83b2-4d7a-9abf-7df75973472b}</Project>
       <Name>GuiLib</Name>
     </ProjectReference>
   </ItemGroup>
